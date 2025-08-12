@@ -28,6 +28,7 @@ export default function Steppers({ steps, currentStep, completedSteps, onStepCli
               {/* Step Circle */}
               <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <ButtonBase
+                  aria-label={step.title}
                   onClick={() => onStepClick(step.id)}
                   sx={{
                     position: "relative",
@@ -39,13 +40,13 @@ export default function Steppers({ steps, currentStep, completedSteps, onStepCli
                     borderColor: isActive
                       ? "#fff"
                       : isPast || isCompleted
-                      ? "rgba(255,178,36,0.55)"
-                      : theme.palette.grey[300],
+                        ? "rgba(255,178,36,0.55)"
+                        : theme.palette.grey[300],
                     background: isActive
                       ? theme.custom.primaryGradient
                       : isPast || isCompleted
-                      ? "rgba(255,178,36,0.55)"
-                      : "#fff",
+                        ? "rgba(255,178,36,0.55)"
+                        : "#fff",
                     boxShadow: isActive ? theme.shadows[6] : theme.shadows[1],
                     transform: isActive ? "scale(1.1)" : "scale(1)",
                     transition: "all 0.3s ease",
@@ -153,13 +154,13 @@ export default function Steppers({ steps, currentStep, completedSteps, onStepCli
                   borderColor: isActive
                     ? theme.palette.primary.main
                     : isCompleted
-                    ? theme.palette.success.main
-                    : theme.palette.grey[400],
+                      ? theme.palette.success.main
+                      : theme.palette.grey[400],
                   bgcolor: isActive
                     ? theme.custom.primaryGradient
                     : isCompleted
-                    ? theme.palette.success.main
-                    : "#fff",
+                      ? theme.palette.success.main
+                      : "#fff",
                   color: isActive ? "#fff" : theme.palette.grey[700],
                   fontSize: "0.75rem",
                   fontWeight: "bold",

@@ -72,7 +72,11 @@ export default function UserInfoStep({
   const handleTakePhoto = () => {
     fileInputRef.current?.click();
   };
-
+  function formatFileSize(bytes) {
+    if (bytes < 1024) return `${bytes} Bytes`;
+    else if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(2)} KB`;
+    else return `${(bytes / 1024 / 1024).toFixed(2)} MB`;
+  }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -86,10 +90,10 @@ export default function UserInfoStep({
         subtitle="Login credentials and basic account setup"
         fieldCount="4 fields"
       >
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-          gap: '24px' 
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '24px'
         }}>
           <FormField
             label="User Email/ID"
@@ -160,10 +164,10 @@ export default function UserInfoStep({
           {/* Name Fields */}
           <div>
             <SectionDivider icon={User} title="Full Name" />
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-              gap: '16px' 
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '16px'
             }}>
               <FormField label="First Name" required>
                 <Input placeholder="John" />
@@ -181,10 +185,10 @@ export default function UserInfoStep({
           <div>
             <SectionDivider icon={MapPin} title="Address Information" />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              <div style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-                gap: '16px' 
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '16px'
               }}>
                 <FormField label="City">
                   <Input placeholder="New York" />
@@ -197,10 +201,10 @@ export default function UserInfoStep({
                 </FormField>
               </div>
 
-              <div style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-                gap: '16px' 
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gap: '16px'
               }}>
                 <FormField label="State/Province">
                   <Select placeholder="Select state">
@@ -232,10 +236,10 @@ export default function UserInfoStep({
           {/* Contact Information */}
           <div>
             <SectionDivider icon={Phone} title="Contact Information" />
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-              gap: '16px' 
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '16px'
             }}>
               <FormField label="Country Code">
                 <Select placeholder="+1">
@@ -260,10 +264,10 @@ export default function UserInfoStep({
           {/* Personal Details */}
           <div>
             <SectionDivider icon={Calendar} title="Personal Details" />
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-              gap: '16px' 
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '16px'
             }}>
               <FormField label="Date of Birth">
                 <InputWithIcon
@@ -285,10 +289,10 @@ export default function UserInfoStep({
           {/* Additional Information */}
           <div>
             <SectionDivider icon={BookOpen} title="Additional Information" />
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-              gap: '16px' 
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '16px'
             }}>
               <FormField label="Religion">
                 <Input placeholder="Optional" />
@@ -313,7 +317,7 @@ export default function UserInfoStep({
                 onChange={handleFileSelect}
                 style={{ display: 'none' }}
               />
-              
+
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {/* Upload buttons */}
                 <div style={{ display: 'flex', gap: '12px' }}>
@@ -354,20 +358,9 @@ export default function UserInfoStep({
                       <h5 style={{ fontSize: '14px', fontWeight: '500', color: '#374151', margin: 0 }}>
                         Photo Preview
                       </h5>
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={handleRemovePhoto}
-                        style={{
-                          color: '#dc2626',
-                          borderColor: '#fecaca'
-                        }}
-                      >
-                        <Trash2 size={16} />
-                        Remove
-                      </Button>
                     </div>
-                    <div style={{ position: 'relative', display: 'inline-block' }}>
+
+                    <div style={{ position: 'relative', display: 'inline-block', width: '128px', }}>
                       <img
                         src={photoPreview}
                         alt="Profile preview"
@@ -380,27 +373,43 @@ export default function UserInfoStep({
                           boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
                         }}
                       />
-                      <div style={{
-                        position: 'absolute',
-                        top: '8px',
-                        right: '8px',
-                        backgroundColor: '#10b981',
-                        color: 'white',
-                        fontSize: '12px',
-                        padding: '4px 8px',
-                        borderRadius: '12px'
-                      }}>
-                        ✓ Uploaded
-                      </div>
+
+                      {/* Delete Icon */}
+                      <button
+                        onClick={() => {
+                          setPhotoPreview(null);
+                          setProfilePhoto(null);
+                        }}
+                        aria-label="Remove photo"
+                        style={{
+                          position: 'absolute',
+                          top: '-8px',
+                          right: '-8px',
+                          background: '#ef4444',
+                          color: '#fff',
+                          border: 'none',
+                          borderRadius: '50%',
+                          width: '24px',
+                          height: '24px',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          fontSize: '14px',
+                          boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
+                        }}
+                      >
+                        <Trash2 />
+                      </button>
+
+                      {profilePhoto && (
+                        <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '4px' }}>
+                          File: {profilePhoto.name} ({formatFileSize(profilePhoto.size)})
+                        </div>
+                      )}
                     </div>
-                    {profilePhoto && (
-                      <div style={{ fontSize: '12px', color: '#6b7280' }}>
-                        File: {profilePhoto.name} ({(profilePhoto.size / 1024 / 1024).toFixed(2)} MB)
-                      </div>
-                    )}
                   </div>
                 )}
-
                 <p style={{ fontSize: '12px', color: '#6b7280', margin: 0 }}>
                   Supported formats: JPG, PNG, GIF (Max 5MB)
                 </p>

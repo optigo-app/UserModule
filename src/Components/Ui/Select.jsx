@@ -4,6 +4,7 @@ export const Select = ({ options = [], placeholder, value, onChange, style }) =>
   <select
     value={value}
     onChange={onChange}
+    aria-label={placeholder}
     style={{
       width: "100%",
       padding: "12px 16px",

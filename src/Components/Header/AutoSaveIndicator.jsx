@@ -22,6 +22,7 @@ export const AutoSaveIndicator = ({ isAutoSaving, lastSaved }) => {
           }}
         >
           <CircularProgress
+            aria-label="Auto-saving your progress"
             size={16}
             thickness={5}
             sx={{
