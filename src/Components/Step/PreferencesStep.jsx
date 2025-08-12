@@ -64,7 +64,7 @@ const CompanyStep = ({
                 subtitle="Quality assurance and certification preferences"
                 fieldCount="6 field"
             >
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+                <Box sx={{ display: "flex", flexDirection: "column", rowSpacing: 0, columnSpacing: 2 }}>
                     <FormField label="Stamping & Hallmarking Preferences">
                         <OptionGrid options={certificationOptions} />
                     </FormField>
@@ -89,8 +89,8 @@ const CompanyStep = ({
                 subtitle="Department-specific instructions and notes"
                 fieldCount="5 field"
             >
-                <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                    <Grid container spacing={2}>
+                <Box sx={{ display: "flex", flexDirection: "column" }}>
+                    <Grid container rowSpacing={0} columnSpacing={2}>
                         <Grid size={{sm:12, md:6}}>
                             <FormField label="Office Instructions" tooltip="Instructions for office staff">
                                 <Textarea

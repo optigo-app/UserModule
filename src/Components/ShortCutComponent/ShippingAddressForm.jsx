@@ -39,7 +39,7 @@ export default function ShippingAddressForm({
                 }
             />
             <CardContent>
-                <Grid container spacing={2}>
+                <Grid container rowSpacing={0} columnSpacing={2}>
                     <Grid size={{ xs: 12, sm: 6 }}>
                         <FormField label="First Name" required>
                             <Input
@@ -156,7 +156,7 @@ export default function ShippingAddressForm({
                     </Grid>
                 </Grid>
             </CardContent>
-            <CardActions sx={{ justifyContent: "flex-end", mt: 2 }}>
+            <CardActions sx={{ justifyContent: "flex-end", my: 2, mx:1 }}>
                 <Button
                     variant="contained"
                     startIcon={<Check size={18} />}

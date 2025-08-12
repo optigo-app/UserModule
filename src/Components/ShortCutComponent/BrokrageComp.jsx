@@ -13,7 +13,7 @@ export default function BrokerageComp({ commissionStructure, setCommissionStruct
         { id: "total", label: "Total Amount", icon: "💰" },
     ];
     return (
-        <Grid container spacing={3}>
+        <Grid container rowSpacing={0} columnSpacing={2}>
             <Grid item size={{ xs: 12, sm: 12 }}>
                 <FormField label="Assign Broker" tooltip="Select the broker for this customer">
                     <Select placeholder="Choose broker">
@@ -136,6 +136,7 @@ export default function BrokerageComp({ commissionStructure, setCommissionStruct
                         type="button"
                         onClick={() => setShowCommissionCalculation(!showCommissionCalculation)}
                         className="toggle-button"
+                        style={{marginBottom:'15px'}}
                     >
                         <ChevronRight
                             className={`toggle-icon ${showCommissionCalculation ? "rotate" : ""}`}

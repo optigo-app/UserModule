@@ -4,7 +4,7 @@ import { FormField, Select } from "../Ui";
 
 export default function CurrReginoal() {
     return (
-        <Grid container spacing={3}>
+        <Grid container rowSpacing={0} columnSpacing={2}>
             <Grid size={{ xs: 12, sm: 6 }}>
                 <FormField label="Primary Currency" tooltip="Main currency for transactions">
                     <Select

@@ -56,6 +56,7 @@ export default function FormNavigation({
                 {/* Next / Complete */}
                 {currentStep === totalSteps ? (
                     <Button
+                        variant="contained"
                         onClick={onComplete}
                         startIcon={<CheckCircle2 size={20} />}
                         sx={{

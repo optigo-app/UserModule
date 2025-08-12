@@ -6,7 +6,7 @@ import { Box, Checkbox, FormControlLabel, Grid, Typography } from '@mui/material
 const PricePolicyComponent = () => {
     return (
         <div>
-            <Grid container spacing={2}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
                 <Grid item size={{ xs: 12, sm: 6 }}>
                     <FormField label="Diamond Price" tooltip="Base price per carat for diamonds">
                         <InputWithIcon

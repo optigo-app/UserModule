@@ -73,7 +73,6 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                 p: 2,
                 border: "1px solid #e5e7eb",
                 borderRadius: 2,
-                bgcolor: "grey.50",
               }}
             >
               <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -101,8 +100,8 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
 
               <Divider sx={{ my: 2 }} />
 
-              <Grid container spacing={2}>
-                <Grid size={{xs:12, sm:6}}>
+              <Grid container rowSpacing={0} columnSpacing={2}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <FormField label="Bank Name" required>
                     <Input
                       placeholder="e.g., Chase Bank"
@@ -111,7 +110,7 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                     />
                   </FormField>
                 </Grid>
-                <Grid size={{xs:12, sm:6}}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <FormField label="Branch Name" required>
                     <Input
                       placeholder="e.g., Downtown Branch"
@@ -120,7 +119,7 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                     />
                   </FormField>
                 </Grid>
-                <Grid size={{xs:12, sm:6}}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <FormField label="Account Holder Name" required>
                     <Input
                       placeholder="Full name on account"
@@ -129,7 +128,7 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                     />
                   </FormField>
                 </Grid>
-                <Grid size={{xs:12, sm:6}}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <FormField label="Account Type">
                     <Select
                       placeholder="Select account type"
@@ -144,7 +143,7 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                     />
                   </FormField>
                 </Grid>
-                <Grid size={{xs:12, sm:6}}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <FormField label="Account Number" required>
                     <Input
                       type="password"
@@ -154,7 +153,7 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                     />
                   </FormField>
                 </Grid>
-                <Grid size={{xs:12, sm:6}}>
+                <Grid size={{ xs: 12, sm: 6 }}>
                   <FormField label="IFSC/Routing Code" required>
                     <Input
                       placeholder="e.g., CHASE0001234"

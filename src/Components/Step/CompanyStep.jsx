@@ -1,12 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  Typography,
-  RadioGroup,
-  FormControlLabel,
-  Radio,
   Box,
   Grid,
   Divider,
@@ -19,13 +12,14 @@ import {
   DollarSign,
 } from "lucide-react";
 import { FormField, Input, InputWithIcon, Select, CollapsibleSection } from "../Ui";
+import CompanySelection from "../ShortCutComponent/CompanySelection";
+import ExistingCompanySelector from "../ShortCutComponent/ExistingCompanySelector";
 
 const CompanyStep = ({
-  companyType,
-  onCompanyTypeChange,
   expandedSections,
   onToggleSection,
 }) => {
+  const [companyType, setCompanyType] = useState("existing");
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
       {/* Company Selection */}
@@ -38,103 +32,8 @@ const CompanyStep = ({
         subtitle="Choose existing or create new company"
         fieldCount="2 options"
       >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          <Card variant="outlined" sx={{ border: "2px dashed", borderColor: "grey.300" }}>
-            <CardHeader
-              avatar={<Building2 size={20} />}
-              title="Company Selection"
-              subheader="Choose how you want to set up the company information"
-            />
-            <CardContent>
-              <RadioGroup
-                value={companyType}
-                onChange={(e) => onCompanyTypeChange(e.target.value)}
-              >
-                <Grid container spacing={2}>
-                  <Grid item size={{ sm: 12, md: 6 }}>
-                    <Card
-                      variant="outlined"
-                      sx={{
-                        p: 2,
-                        cursor: "pointer",
-                        "&:hover": { bgcolor: "action.hover" },
-                        border: companyType === "existing" ? "2px solid" : "1px solid",
-                        borderColor: companyType === "existing" ? "primary.main" : "grey.300",
-                      }}
-                    >
-                      <FormControlLabel
-                        value="existing"
-                        control={<Radio />}
-                        label={
-                          <Box>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                              Select Existing Company
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              Link to a company already in the system
-                            </Typography>
-                          </Box>
-                        }
-                        sx={{ margin: 0, alignItems: "flex-start" }}
-                      />
-                    </Card>
-                  </Grid>
-                  <Grid item size={{ sm: 12, md: 6 }}>
-                    <Card
-                      variant="outlined"
-                      sx={{
-                        p: 2,
-                        cursor: "pointer",
-                        "&:hover": { bgcolor: "action.hover" },
-                        border: companyType === "new" ? "2px solid" : "1px solid",
-                        borderColor: companyType === "new" ? "primary.main" : "grey.300",
-                      }}
-                    >
-                      <FormControlLabel
-                        value="new"
-                        control={<Radio />}
-                        label={
-                          <Box>
-                            <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-                              Create New Company
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              Set up a completely new company profile
-                            </Typography>
-                          </Box>
-                        }
-                        sx={{ margin: 0, alignItems: "flex-start" }}
-                      />
-                    </Card>
-                  </Grid>
-                </Grid>
-              </RadioGroup>
-            </CardContent>
-          </Card>
-
-          {companyType === "existing" && (
-            <Card>
-              <CardHeader title="Select Existing Company" />
-              <CardContent>
-                <FormField label="Company" required>
-                  <Select
-                    placeholder="Search and select company..."
-                    options={[
-                      {
-                        value: "company1",
-                        label: "ABC Jewelers Ltd. — GST: 123456789 • New York",
-                      },
-                      {
-                        value: "company2",
-                        label: "XYZ Diamonds Inc. — GST: 987654321 • California",
-                      },
-                    ]}
-                  />
-                </FormField>
-              </CardContent>
-            </Card>
-          )}
-        </Box>
+        <CompanySelection companyType={companyType} onCompanyTypeChange={setCompanyType} />
+        {companyType === "existing" && <ExistingCompanySelector />}
       </CollapsibleSection>
 
       {/* Basic Company Info */}
@@ -149,7 +48,7 @@ const CompanyStep = ({
           fieldCount="4 fields"
         >
           <Box>
-            <Grid container spacing={3}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Company Name" required>
                   <Input placeholder="Enter company name" />
@@ -207,8 +106,8 @@ const CompanyStep = ({
           subtitle="Business location and contact details"
           fieldCount="8+ fields"
         >
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            <Grid container spacing={2}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
               <Grid item size={{ sm: 12, md: 4 }}>
                 <FormField label="City">
                   <Input placeholder="City name" />
@@ -240,7 +139,7 @@ const CompanyStep = ({
               </Grid>
             </Grid>
 
-            <Grid container spacing={2}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Area/District">
                   <Input placeholder="Area or district" />
@@ -253,7 +152,7 @@ const CompanyStep = ({
               </Grid>
             </Grid>
 
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
               <FormField label="Address Line 1">
                 <Input placeholder="Street address, building number" />
               </FormField>
@@ -262,7 +161,7 @@ const CompanyStep = ({
               </FormField>
             </Box>
 
-            <Grid container spacing={2}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Company Mobile">
                   <InputWithIcon
@@ -293,8 +192,8 @@ const CompanyStep = ({
           subtitle="Tax numbers and compliance information"
           fieldCount="8+ fields"
         >
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-            <Grid container spacing={2}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="GST Number" tooltip="Goods and Services Tax registration number">
                   <Input placeholder="e.g., 22AAAAA0000A1Z5" />
@@ -329,7 +228,7 @@ const CompanyStep = ({
 
             <Divider />
 
-            <Grid container spacing={2}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Credit Limit" tooltip="Maximum credit amount allowed">
                   <InputWithIcon
@@ -353,7 +252,7 @@ const CompanyStep = ({
                 </FormField>
               </Grid>
             </Grid>
-            <Grid container spacing={2}>
+            <Grid container rowSpacing={0} columnSpacing={2}>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="CIN Number">
                   <Input placeholder="Corporate Identity Number" />
