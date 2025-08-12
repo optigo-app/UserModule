@@ -18,29 +18,24 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                 fieldCount="2 options"
             >
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                    <Alert severity="info" icon={<CreditCard size={18} />}>
-                        <strong>Secure Banking:</strong> All banking information is encrypted and stored securely. This
-                        information is used for payment processing and financial transactions.
-                    </Alert>
-
                     <Box>
                         <Grid container spacing={2}>
-                            <Grid size={{xs:12, md:6}}>
+                            <Grid size={{ xs: 12, md: 6 }}>
                                 <FormField label="Bank Name" required tooltip="Full name of the bank">
                                     <Input placeholder="e.g., Chase Bank" />
                                 </FormField>
                             </Grid>
-                            <Grid size={{xs:12, md:6}}>
+                            <Grid size={{ xs: 12, md: 6 }}>
                                 <FormField label="Branch Name" required tooltip="Specific branch location">
                                     <Input placeholder="e.g., Downtown Branch" />
                                 </FormField>
                             </Grid>
-                            <Grid size={{xs:12, md:6}}>
+                            <Grid size={{ xs: 12, md: 6 }}>
                                 <FormField label="Account Holder Name" required tooltip="Name as it appears on bank records">
                                     <Input placeholder="Full name on account" />
                                 </FormField>
                             </Grid>
-                            <Grid size={{xs:12, md:6}}>
+                            <Grid size={{ xs: 12, md: 6 }}>
                                 <FormField label="Account Type">
                                     <Select
                                         placeholder="Select account type"
@@ -53,12 +48,12 @@ const BankingStep = ({ expandedSections, onToggleSection }) => {
                                     />
                                 </FormField>
                             </Grid>
-                            <Grid size={{xs:12, md:6}}>
+                            <Grid size={{ xs: 12, md: 6 }}>
                                 <FormField label="Account Number" required tooltip="Your bank account number">
                                     <Input type="password" placeholder="Enter account number" />
                                 </FormField>
                             </Grid>
-                            <Grid size={{xs:12, md:6}}>
+                            <Grid size={{ xs: 12, md: 6 }}>
                                 <FormField label="IFSC/Routing Code" required tooltip="Bank's routing or IFSC code">
                                     <Input placeholder="e.g., CHASE0001234" />
                                 </FormField>

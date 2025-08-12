@@ -42,12 +42,6 @@ const CompanyStep = ({
         fieldCount="2 options"
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
-          <Alert severity="info" sx={{ borderColor: "warning.main", bgcolor: "warning.50" }}>
-            <AlertTitle sx={{ fontWeight: 600 }}>Company Setup</AlertTitle>
-            Choose to link an existing company or create a new one. All business-related
-            transactions will be associated with this company.
-          </Alert>
-
           <Card variant="outlined" sx={{ border: "2px dashed", borderColor: "grey.300" }}>
             <CardHeader
               avatar={<Building2 size={20} />}

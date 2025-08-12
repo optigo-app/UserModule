@@ -12,21 +12,21 @@ import {
   export const steps = [
     {
       id: 1,
-      title: "User Info",
-      shortTitle: "User",
-      icon: User,
-      description: "Basic account and personal details",
-      estimatedTime: "3-5 min",
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      id: 2,
       title: "Company",
       shortTitle: "Company",
       icon: Building2,
       description: "Business information and registration",
       estimatedTime: "2-4 min",
       color: "from-green-500 to-green-600",
+    },
+    {
+      id: 2,
+      title: "User Info",
+      shortTitle: "User",
+      icon: User,
+      description: "Basic account and personal details",
+      estimatedTime: "3-5 min",
+      color: "from-blue-500 to-blue-600",
     },
     {
       id: 3,
