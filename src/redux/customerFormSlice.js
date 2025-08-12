@@ -3,7 +3,7 @@ import { formInitialState } from "./formInitialState";
 
 const customerFormSlice = createSlice({
   name: "customerForm",
-  initialState,
+  formInitialState,
   reducers: {
     updateStepData: (state, action) => {
       const { stepName, formData } = action.payload;
@@ -18,7 +18,7 @@ const customerFormSlice = createSlice({
     prevStep: (state) => {
       state.step -= 1;
     },
-    resetForm: () => initialState,
+    resetForm: () => formInitialState,
   },
 });
 

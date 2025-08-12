@@ -142,10 +142,14 @@ export default function UserInfoStep({
           </FormField>
 
           <FormField label="Assigned Broker" tooltip="Select a broker to handle this customer's account">
-            <Select placeholder="Select broker (optional)">
-              <option value="broker1">John Smith - Premium Broker • 5+ years</option>
-              <option value="broker2">Sarah Johnson - Senior Broker • 8+ years</option>
-            </Select>
+            <Select
+              placeholder="Select broker (optional)"
+              options={[
+                { value: "broker1", label: "John Smith - Premium Broker • 5+ years" },
+                { value: "broker2", label: "Sarah Johnson - Senior Broker • 8+ years" },
+              ]}
+            />
+
           </FormField>
         </div>
       </CollapsibleSection>
@@ -207,20 +211,27 @@ export default function UserInfoStep({
                 gap: '16px'
               }}>
                 <FormField label="State/Province">
-                  <Select placeholder="Select state">
-                    <option value="ca">California</option>
-                    <option value="ny">New York</option>
-                    <option value="tx">Texas</option>
-                    <option value="fl">Florida</option>
-                  </Select>
+                  <Select
+                    placeholder="Select state"
+                    options={[
+                      { value: "ca", label: "California" },
+                      { value: "ny", label: "New York" },
+                      { value: "tx", label: "Texas" },
+                      { value: "fl", label: "Florida" },
+                    ]}
+                  />
+
                 </FormField>
                 <FormField label="Country">
-                  <Select placeholder="Select country">
-                    <option value="us">🇺🇸 United States</option>
-                    <option value="in">🇮🇳 India</option>
-                    <option value="uk">🇬🇧 United Kingdom</option>
-                    <option value="ca">🇨🇦 Canada</option>
-                  </Select>
+                  <Select
+                    placeholder="Select country"
+                    options={[
+                      { value: "us", label: "🇺🇸 United States" },
+                      { value: "in", label: "🇮🇳 India" },
+                      { value: "uk", label: "🇬🇧 United Kingdom" },
+                      { value: "ca", label: "🇨🇦 Canada" },
+                    ]}
+                  />
                 </FormField>
               </div>
 
@@ -242,12 +253,15 @@ export default function UserInfoStep({
               gap: '16px'
             }}>
               <FormField label="Country Code">
-                <Select placeholder="+1">
-                  <option value="+1">+1 (US/CA)</option>
-                  <option value="+91">+91 (India)</option>
-                  <option value="+44">+44 (UK)</option>
-                  <option value="+61">+61 (Australia)</option>
-                </Select>
+                <Select
+                  placeholder="+1"
+                  options={[
+                    { value: "+1", label: "+1 (US/CA)" },
+                    { value: "+91", label: "+91 (India)" },
+                    { value: "+44", label: "+44 (UK)" },
+                    { value: "+61", label: "+61 (Australia)" },
+                  ]}
+                />
               </FormField>
               <FormField label="Mobile Number" required>
                 <InputWithIcon
@@ -276,12 +290,15 @@ export default function UserInfoStep({
                 />
               </FormField>
               <FormField label="Marital Status">
-                <Select placeholder="Select status">
-                  <option value="single">Single</option>
-                  <option value="married">Married</option>
-                  <option value="divorced">Divorced</option>
-                  <option value="widowed">Widowed</option>
-                </Select>
+                <Select
+                  placeholder="Select status"
+                  options={[
+                    { value: "single", label: "Single" },
+                    { value: "married", label: "Married" },
+                    { value: "divorced", label: "Divorced" },
+                    { value: "widowed", label: "Widowed" },
+                  ]}
+                />
               </FormField>
             </div>
           </div>

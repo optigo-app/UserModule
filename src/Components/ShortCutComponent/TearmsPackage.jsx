@@ -9,12 +9,13 @@ export default function TearmsPackage() {
                 <FormField label="E-Catalog Package" tooltip="Digital catalog access level">
                     <Select
                         placeholder="Select package level"
-                    >
-                        <option value="usd">📦 Basic Package</option>
-                        <option value="inr">⭐ Premium Package</option>
-                        <option value="eur">🏢 Enterprise Package</option>
-                        <option value="gbp">🎯 Custom Package</option>
-                    </Select>
+                        options={[
+                            { value: "usd", label: "📦 Basic Package" },
+                            { value: "inr", label: "⭐ Premium Package" },
+                            { value: "eur", label: "🏢 Enterprise Package" },
+                            { value: "gbp", label: "🎯 Custom Package" },
+                        ]}
+                    />
                 </FormField>
             </Grid>
 
@@ -22,10 +23,11 @@ export default function TearmsPackage() {
                 <FormField label="Select adhoc access" tooltip="Allow one-time catalog purchases">
                     <Select
                         placeholder="Select adhoc access"
-                    >
-                        <option value="usd">✅ Enabled</option>
-                        <option value="inr">❌ Disabled</option>
-                    </Select>
+                        options={[
+                            { value: "usd", label: "✅ Enabled" },
+                            { value: "inr", label: "❌ Disabled" },
+                        ]}
+                    />
                 </FormField>
             </Grid>
 
@@ -33,12 +35,13 @@ export default function TearmsPackage() {
                 <FormField label="Select policy duration" tooltip="Duration of the pricing policy">
                     <Select
                         placeholder="Select policy duration"
-                    >
-                        <option value="est">📅 Monthly (30 days)</option>
-                        <option value="pst">📊 Quarterly (90 days)</option>
-                        <option value="ist">📈 Half-Yearly (180 days)</option>
-                        <option value="gmt">🗓️ Yearly (365 days)</option>
-                    </Select>
+                        options={[
+                            { value: "est", label: "📅 Monthly (30 days)" },
+                            { value: "pst", label: "📊 Quarterly (90 days)" },
+                            { value: "ist", label: "📈 Half-Yearly (180 days)" },
+                            { value: "gmt", label: "🗓️ Yearly (365 days)" },
+                        ]}
+                    />
                 </FormField>
             </Grid>
         </Grid>

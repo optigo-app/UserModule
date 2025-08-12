@@ -76,12 +76,13 @@ export default function ShippingAddressForm({
                                 value={address.country}
                                 onChange={(e) => setAddress({ ...address, country: e.target.value })}
                                 placeholder="Select country"
-                            >
-                                <option value="us">🇺🇸 United States</option>
-                                <option value="in">🇮🇳 India</option>
-                                <option value="uk">🇬🇧 United Kingdom</option>
-                                <option value="ca">🇨🇦 Canada</option>
-                            </Select>
+                                options={[
+                                    { value: "us", label: "🇺🇸 United States" },
+                                    { value: "in", label: "🇮🇳 India" },
+                                    { value: "uk", label: "🇬🇧 United Kingdom" },
+                                    { value: "ca", label: "🇨🇦 Canada" },
+                                ]}
+                            />
                         </FormField>
                     </Grid>
 
@@ -91,12 +92,13 @@ export default function ShippingAddressForm({
                                 value={address.state}
                                 onChange={(e) => setAddress({ ...address, state: e.target.value })}
                                 placeholder="Select state"
-                            >
-                                <option value="ca">California</option>
-                                <option value="ny">New York</option>
-                                <option value="tx">Texas</option>
-                                <option value="fl">Florida</option>
-                            </Select>
+                                options={[
+                                    { value: "ca", label: "California" },
+                                    { value: "ny", label: "New York" },
+                                    { value: "tx", label: "Texas" },
+                                    { value: "fl", label: "Florida" },
+                                ]}
+                            />
                         </FormField>
                     </Grid>
 

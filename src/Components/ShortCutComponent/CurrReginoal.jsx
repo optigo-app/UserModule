@@ -9,12 +9,13 @@ export default function CurrReginoal() {
                 <FormField label="Primary Currency" tooltip="Main currency for transactions">
                     <Select
                         placeholder="Select primary currency"
-                    >
-                        <option value="usd">💵 USD - US Dollar</option>
-                        <option value="inr">🇮🇳 INR - Indian Rupee</option>
-                        <option value="eur">🇪🇺 EUR - Euro</option>
-                        <option value="gbp">🇬🇧 GBP - British Pound</option>
-                    </Select>
+                        options={[
+                            { value: "usd", label: "💵 USD - US Dollar" },
+                            { value: "inr", label: "🇮🇳 INR - Indian Rupee" },
+                            { value: "eur", label: "🇪🇺 EUR - Euro" },
+                            { value: "gbp", label: "🇬🇧 GBP - British Pound" },
+                        ]}
+                    />
                 </FormField>
             </Grid>
 
@@ -22,11 +23,12 @@ export default function CurrReginoal() {
                 <FormField label="Secondary Currency" tooltip="Alternative currency for pricing">
                     <Select
                         placeholder="Select secondary currency"
-                    >
-                        <option value="none">❌ No Secondary Currency</option>
-                        <option value="usd">💵 USD - US Dollar</option>
-                        <option value="inr">🇮🇳 INR - Indian Rupee</option>
-                    </Select>
+                        options={[
+                            { value: "none", label: "❌ No Secondary Currency" },
+                            { value: "usd", label: "💵 USD - US Dollar" },
+                            { value: "inr", label: "🇮🇳 INR - Indian Rupee" },
+                        ]}
+                    />
                 </FormField>
             </Grid>
 
@@ -34,12 +36,13 @@ export default function CurrReginoal() {
                 <FormField label="Time Zone" tooltip="Customer's local time zone">
                     <Select
                         placeholder="Select time zone"
-                    >
-                        <option value="est">🇺🇸 EST - Eastern Time</option>
-                        <option value="pst">🇺🇸 PST - Pacific Time</option>
-                        <option value="ist">🇮🇳 IST - India Time</option>
-                        <option value="gmt">🇬🇧 GMT - Greenwich Time</option>
-                    </Select>
+                        options={[
+                            { value: "est", label: "🇺🇸 EST - Eastern Time" },
+                            { value: "pst", label: "🇺🇸 PST - Pacific Time" },
+                            { value: "ist", label: "🇮🇳 IST - India Time" },
+                            { value: "gmt", label: "🇬🇧 GMT - Greenwich Time" },
+                        ]}
+                    />
                 </FormField>
             </Grid>
 
@@ -47,11 +50,12 @@ export default function CurrReginoal() {
                 <FormField label="Date Format" tooltip="Preferred date display format">
                     <Select
                         placeholder="Select date format"
-                    >
-                        <option value="mm/dd/yyyy">📅 MM/DD/YYYY</option>
-                        <option value="dd/mm/yyyy">📅 DD/MM/YYYY</option>
-                        <option value="yyyy-mm-dd">📅 YYYY-MM-DD</option>
-                    </Select>
+                        options={[
+                            { value: "mm/dd/yyyy", label: "📅 MM/DD/YYYY" },
+                            { value: "dd/mm/yyyy", label: "📅 DD/MM/YYYY" },
+                            { value: "yyyy-mm-dd", label: "📅 YYYY-MM-DD" },
+                        ]}
+                    />
                 </FormField>
             </Grid>
         </Grid>

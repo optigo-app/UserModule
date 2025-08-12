@@ -7,11 +7,8 @@ import {
   RadioGroup,
   FormControlLabel,
   Radio,
-  Alert,
-  AlertTitle,
   Box,
   Grid,
-  MenuItem,
   Divider,
 } from "@mui/material";
 import {
@@ -120,28 +117,19 @@ const CompanyStep = ({
               <CardHeader title="Select Existing Company" />
               <CardContent>
                 <FormField label="Company" required>
-                  <Select placeholder="Search and select company..." >
-                    <MenuItem value="company1">
-                      <Box>
-                        <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                          ABC Jewelers Ltd.
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          GST: 123456789 • New York
-                        </Typography>
-                      </Box>
-                    </MenuItem>
-                    <MenuItem value="company2">
-                      <Box>
-                        <Typography variant="body1" sx={{ fontWeight: 600 }}>
-                          XYZ Diamonds Inc.
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          GST: 987654321 • California
-                        </Typography>
-                      </Box>
-                    </MenuItem>
-                  </Select>
+                  <Select
+                    placeholder="Search and select company..."
+                    options={[
+                      {
+                        value: "company1",
+                        label: "ABC Jewelers Ltd. — GST: 123456789 • New York",
+                      },
+                      {
+                        value: "company2",
+                        label: "XYZ Diamonds Inc. — GST: 987654321 • California",
+                      },
+                    ]}
+                  />
                 </FormField>
               </CardContent>
             </Card>
@@ -169,29 +157,38 @@ const CompanyStep = ({
               </Grid>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Company Type">
-                  <Select placeholder="Select type" >
-                    <MenuItem value="pvt">Private Limited Company</MenuItem>
-                    <MenuItem value="llp">Limited Liability Partnership</MenuItem>
-                    <MenuItem value="partnership">Partnership Firm</MenuItem>
-                    <MenuItem value="sole">Sole Proprietorship</MenuItem>
-                  </Select>
+                  <Select
+                    placeholder="Select type"
+                    options={[
+                      { value: "pvt", label: "Private Limited Company" },
+                      { value: "llp", label: "Limited Liability Partnership" },
+                      { value: "partnership", label: "Partnership Firm" },
+                      { value: "sole", label: "Sole Proprietorship" },
+                    ]}
+                  />
                 </FormField>
               </Grid>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Tax Type">
-                  <Select placeholder="Select tax type" >
-                    <MenuItem value="gst">GST Registered</MenuItem>
-                    <MenuItem value="vat">VAT Registered</MenuItem>
-                    <MenuItem value="none">Not Registered</MenuItem>
-                  </Select>
+                  <Select
+                    placeholder="Select tax type"
+                    options={[
+                      { value: "gst", label: "GST Registered" },
+                      { value: "vat", label: "VAT Registered" },
+                      { value: "none", label: "Not Registered" },
+                    ]}
+                  />
                 </FormField>
               </Grid>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Tax Scheme">
-                  <Select placeholder="Select scheme" >
-                    <MenuItem value="regular">Regular Scheme</MenuItem>
-                    <MenuItem value="composition">Composition Scheme</MenuItem>
-                  </Select>
+                  <Select
+                    placeholder="Select scheme"
+                    options={[
+                      { value: "regular", label: "Regular Scheme" },
+                      { value: "composition", label: "Composition Scheme" },
+                    ]}
+                  />
                 </FormField>
               </Grid>
             </Grid>
@@ -219,20 +216,26 @@ const CompanyStep = ({
               </Grid>
               <Grid item size={{ sm: 12, md: 4 }}>
                 <FormField label="State/Province">
-                  <Select placeholder="Select state" >
-                    <MenuItem value="ca">California</MenuItem>
-                    <MenuItem value="ny">New York</MenuItem>
-                    <MenuItem value="tx">Texas</MenuItem>
-                  </Select>
+                  <Select
+                    placeholder="Select state"
+                    options={[
+                      { value: "ca", label: "California" },
+                      { value: "ny", label: "New York" },
+                      { value: "tx", label: "Texas" },
+                    ]}
+                  />
                 </FormField>
               </Grid>
               <Grid item size={{ sm: 12, md: 4 }}>
                 <FormField label="Country">
-                  <Select placeholder="Select country" >
-                    <MenuItem value="us">🇺🇸 United States</MenuItem>
-                    <MenuItem value="in">🇮🇳 India</MenuItem>
-                    <MenuItem value="uk">🇬🇧 United Kingdom</MenuItem>
-                  </Select>
+                  <Select
+                    placeholder="Select country"
+                    options={[
+                      { value: "us", label: "🇺🇸 United States" },
+                      { value: "in", label: "🇮🇳 India" },
+                      { value: "uk", label: "🇬🇧 United Kingdom" },
+                    ]}
+                  />
                 </FormField>
               </Grid>
             </Grid>
@@ -338,16 +341,18 @@ const CompanyStep = ({
               </Grid>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="Enterprise Type">
-                  <Select placeholder="Select enterprise type" >
-                    <MenuItem value="micro">Micro Enterprise</MenuItem>
-                    <MenuItem value="small">Small Enterprise</MenuItem>
-                    <MenuItem value="medium">Medium Enterprise</MenuItem>
-                    <MenuItem value="large">Large Enterprise</MenuItem>
-                  </Select>
+                  <Select
+                    placeholder="Select enterprise type"
+                    options={[
+                      { value: "micro", label: "Micro Enterprise" },
+                      { value: "small", label: "Small Enterprise" },
+                      { value: "medium", label: "Medium Enterprise" },
+                      { value: "large", label: "Large Enterprise" },
+                    ]}
+                  />
                 </FormField>
               </Grid>
             </Grid>
-
             <Grid container spacing={2}>
               <Grid item size={{ sm: 12, md: 6 }}>
                 <FormField label="CIN Number">
